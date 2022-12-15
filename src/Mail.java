@@ -102,7 +102,7 @@ class Main {
 
     public static boolean isEmpty(String str) {
         if (str.isEmpty()) {
-            System.out.println("Пустое значение добавить в список нелья");
+            System.out.println("Пустое значение добавить в список нельзя");
             return false;
         }
         return true;
@@ -110,8 +110,14 @@ class Main {
 
     public static void outputList(List<String> list) {
         System.out.println("Список покупок: ");
-        list.forEach((c) -> System.out.println(list.indexOf(c) + 1 + ". " + c));
-    }
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println((i + 1) + ". " + list.get(i));
+        }
+
+
+        }
+
+
 
     public static void actionList(List<String> list, String product, String action) {
         if (action.equals("add")) {
@@ -124,7 +130,7 @@ class Main {
             list.remove(product);
         }
         if (action.equals("find")) {
-            for (Object lang : list) {
+            for (String lang : list) {
                 if (lang.toString().toLowerCase().contains(product.toLowerCase())) {
                     System.out.println("Найдено: " + (list.indexOf(lang) + 1) + ". " + lang);
 
